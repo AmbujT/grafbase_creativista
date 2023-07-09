@@ -6,13 +6,13 @@ avatarUrl: g.url(),
 description: g.string().optional(),
 githubUrl: g.url().optional(),
 linkedInUrl: g.url().optional(),
-projects: g.relation(),
+projects: g.relation(() => Project).list().optional(),
 }
 )
 const Project = g.model('Project', {
   title: g.string().length({min: 3}),
   description: g.string(),
-  Image: g.url(),
+  image: g.url(),
   liveSiteUrl: g.url(),
   githubUrl: g.url(),
   category: g.string().search(),
